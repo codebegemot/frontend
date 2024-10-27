@@ -1,6 +1,7 @@
+// eventService.js
 import api from './api';
 
-export const getAllEvents = async () => {
+const getAllEvents = async () => {
   try {
     const response = await api.get("/event");
     return response.data;
@@ -9,15 +10,19 @@ export const getAllEvents = async () => {
     throw error;
   }
 };
-  
-export const getEventById = async (id) => {
-    const response = await api.get(`/event/${id}`);
-    return response.data;
+
+const getEventById = async (id) => {
+  const response = await api.get(`/event/${id}`);
+  return response.data;
 };
 
-export const createEvent = async (eventData) => {
-    const response = await api.post("/event", eventData);
-    return response.data;
+const createEvent = async (eventData) => {
+  const response = await api.post("/event", eventData);
+  return response.data;
 };
-  
-// другие функции, если нужно
+
+export default {
+  getAllEvents,
+  getEventById,
+  createEvent,
+};

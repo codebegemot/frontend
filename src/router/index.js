@@ -4,7 +4,8 @@ import EventDetails from "../views/EventDetails.vue";
 import UserProfile from "../views/UserProfile.vue";
 
 const routes = [
-  { path: "/", name: "Home", component: Home },
+  { path: "/", redirect: "/home" },
+  { path: "/home", name: "Home", component: Home },
   { path: "/event/:id", name: "EventDetails", component: EventDetails },
   { path: "/profile", name: "UserProfile", component: UserProfile }
 ];
