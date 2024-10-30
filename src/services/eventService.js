@@ -16,6 +16,18 @@ const getEventById = async (id) => {
   return response.data;
 };
 
+const getEvent = async (pageNumber) => {
+  try {
+    const response = await api.get("/event", {
+      params: { pageNumber },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при загрузке ивента:", error);
+    throw error;
+  }
+};
+
 const createEvent = async (eventData) => {
   const response = await api.post("/event", eventData);
   return response.data;
@@ -24,5 +36,6 @@ const createEvent = async (eventData) => {
 export default {
   getAllEvents,
   getEventById,
+  getEvent,
   createEvent,
 };
